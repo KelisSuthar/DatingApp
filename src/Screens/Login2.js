@@ -39,7 +39,8 @@ const Login2 = props => {
       setDialog(true);
       setDialogMsg(ErrorMessages.pass_valid);
     } else {
-      setDialog(false);
+      setDialogMsg('Succress');
+      setDialog(true);
     }
 
   }
@@ -148,7 +149,7 @@ const Login2 = props => {
               style={{
                 color: 'black',
               }}>
-              ' And '
+               And 
               <Text
                 style={{
                   color: '#F65E7F',
