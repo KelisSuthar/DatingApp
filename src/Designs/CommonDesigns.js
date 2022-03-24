@@ -172,7 +172,7 @@ export const WhiteTextInput = ({...props}) => {
         <View style={{flexDirection: 'row'}}>
           <TextInput
             autoFocus={false}
-            secureTextEntry={secureEntry}
+            secureTextEntry={props.iseyeshow?secureEntry:false }
             returnKeyType={props.returnKeyType}
             placeholder={hint_visibility ? '' : props.Hint}
             placeholderTextColor="grey"
