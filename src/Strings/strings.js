@@ -12,10 +12,43 @@ export const stringAssets = {
   Splash_Button: 'Get Started',
   WalkThrough_Text: 'Dating Application \n Concept',
   WalkThrough_Button: 'Create account',
+  login_Button: 'Create account',
   Have_an_acc: 'Have an account? ',
   Log_in: 'Log in',
+  change_pass:'Change number',
   Welcome_back: 'Welcome back.',
   Log_in_acc: 'Log in to your account',
+  Number: 'Number',
+  ReicieverSMS:
+    'You will receive an SMS verification that may apply message and data rates.',
+  Use_email_insted: 'Use email, instead',
+  email: 'Email',
+  password: 'Password',
+  Forgot_Pass_q: 'Forgot password?',
+  Terms_conditaion: 'Terms of Srevice',
+  Prpivacy_policy: 'Privacy Policy',
+  continue: 'Continue',
+  resend_code:'Resend Code',
+  forgot_headder_1 :'Enter authentication code',
+  forgot_headder_2 :'Enter the 4-digit that we have sent via the phone number +91 95866-37356',
+
+};
+
+export const ErrorMessages = {
+  ccp_empty: 'Please Select Country Code',
+  num_length: 'Please Enter Valid Number',
+  num_empty: 'Please Enter Number',
+  email_empty: 'Please Enter email',
+  email_valid: 'Please Enter Valid email',
+  pass_empty: 'Please Enter Password',
+  pass_valid: 'Please Enter Valid Password',
+  otp_valid: 'Please Enter Valid OTP \n OTP Has 4 Digits',
+  otp_empty: 'Please Enter OTP',
+};
+export const StringRegex = {
+  email_regex: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+
+  pass_regex: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
 };
 
 export function getHeightPer(per) {
