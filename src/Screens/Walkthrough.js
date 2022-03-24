@@ -6,10 +6,22 @@ import {View, Text, StatusBar} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 const WalkThrough = props => {
   return (
-      
-    <View style={[coomonStyles.parentView,{justifyContent:'center'}]}>
-        <LinearGradient colors={['#F65E7F','#FF007B','#00A1FF']} style = {{flex:1,opacity:0.1,position:'absolute',height:getHeightPer(100),width:getWidthPer(100)}}/>
-      <StatusBar translucent = {true} backgroundColor={'transparent'} barStyle="dark-content" />
+    <View style={[coomonStyles.parentView, {justifyContent: 'center'}]}>
+      <LinearGradient
+        colors={['#F65E7F', '#FF007B', '#00A1FF']}
+        style={{
+          flex: 1,
+          opacity: 0.1,
+          position: 'absolute',
+          height: getHeightPer(100),
+          width: getWidthPer(100),
+        }}
+      />
+      <StatusBar
+        translucent={true}
+        backgroundColor={'transparent'}
+        barStyle="dark-content"
+      />
       <CommonImgs
         path={require('../ImgAssets/heart_lock.png')}
         height={getHeightPer(30)}
@@ -58,7 +70,6 @@ const WalkThrough = props => {
         </Text>
       </Text>
     </View>
-    
   );
 };
 export default WalkThrough;

@@ -13,7 +13,22 @@ export const coomonStyles = StyleSheet.create({
     borderColor: 'grey',
     borderWidth: 1,
     width: '100%',
-    height: 50,
     flexDirection: 'column',
+  },
+  otp: {
+    backgroundColor: 'white',
+    borderRadius: 50,
+    height:50,
+    width:50,
+    color:'black'
+  },
+  otp_active: {
+    backgroundColor: 'white',
+    borderRadius: 25,
+    borderColor: '#F65E7F',
+    borderWidth: 1,
+    height:50,
+    width:50,
+    color:'black'
   },
 });

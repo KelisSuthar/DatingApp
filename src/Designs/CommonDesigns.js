@@ -1,7 +1,18 @@
 import React from 'react';
-import {View, Button, TouchableOpacity, Text, Image} from 'react-native';
+
+import {
+  View,
+  Modal,
+  TouchableOpacity,
+  Text,
+  Image,
+  TextInput,
+} from 'react-native';
 import {getHeightPer, getWidthPer} from '../Strings/strings';
+import {coomonStyles} from '../Styles/commonStyles';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Octicons from 'react-native-vector-icons/Octicons';
+import LinearGradient from 'react-native-linear-gradient';
 
 export const CommonButton = ({button_text, ...props}) => {
   return (
@@ -49,6 +60,7 @@ export const CommonImgs = ({path, ...props}) => {
 export const CommonTexts = ({string, ...props}) => {
   return (
     <Text
+      onPress={props.onPress}
       style={{
         color: props.color,
         fontSize: props.fontSize,
@@ -57,6 +69,7 @@ export const CommonTexts = ({string, ...props}) => {
         textAlign: props.textAlign,
         marginTop: props.marginTop,
         fontFamily: 'Poppins',
+        bottom: props.bottom,
       }}>
       {string}
     </Text>
@@ -65,8 +78,18 @@ export const CommonTexts = ({string, ...props}) => {
 
 export const CommonHeadder = ({string, ...props}) => {
   return (
-    <View style={{flexDirection: 'row', alignSelf: 'auto'}}>
+    <View
+      style={{
+        marginTop: 16,
+        height: props.height,
+        width: props.width,
+        flexDirection: 'row',
+        top: props.top,
+        position: props.position,
+      }}>
       <MaterialIcons
+        style
+        width="10%"
         name="arrow-back-ios"
         color={'#F65E7F'}
         size={30}
@@ -75,15 +98,103 @@ export const CommonHeadder = ({string, ...props}) => {
       <Text
         style={{
           color: '#F65E7F',
+
           fontWeight: '600',
           fontSize: 18,
-          width: '100%',
+          alignSelf: 'center',
           textAlign: 'center',
+          width: '90%',
         }}>
         {string}
       </Text>
     </View>
   );
 };
+export const CommonModalDialog = ({message, ...props}) => {
+  return (
+    <Modal
+      style={{
+        justifyContent: 'center',
+        alignSelf: 'center',
+        flexDirection: 'row',
+      }}
+      animationType="slide"
+      visible={props.visible}
+      transparent={true}
+      onRequestClose={props.onRequestClose}>
+      <View
+        style={{
+          marginTop: getHeightPer(30),
+          width: getWidthPer(70),
+          backgroundColor: 'white',
+          borderRadius: 20,
+          padding: 35,
+          alignSelf: 'center',
+          alignItems: 'center',
+          shadowColor: '#000',
 
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
 
+          shadowRadius: 4,
+          elevation: 5,
+        }}>
+        <Text style={{color: 'black'}}>{message}</Text>
+        <TouchableOpacity
+          onPress={props.onPress}
+          style={{
+            borderRadius: 20,
+            marginTop: 40,
+            height: 40,
+            width: '60%',
+            backgroundColor: '#F65E7F',
+            justifyContent: 'center',
+          }}>
+          <Text style={{color: 'white', alignSelf: 'center'}}>{'Close'}</Text>
+        </TouchableOpacity>
+      </View>
+    </Modal>
+  );
+};
+
+export const WhiteTextInput = ({...props}) => {
+  const [hint_visibility, set_hint_visibility] = React.useState(false);
+  const [value, setValue] = React.useState('');
+  const [secureEntry, setsecureEntry] = React.useState(true);
+  return (
+    <View style={[coomonStyles.whiteBack, {marginTop: getHeightPer(3)}]}>
+      <View style={{flexDirection: 'column', marginHorizontal: 20}}>
+        {hint_visibility ? (
+          <Text style={{color: 'grey'}}>{props.Hint}</Text>
+        ) : null}
+        <View style={{flexDirection: 'row'}}>
+          <TextInput
+            autoFocus={false}
+            secureTextEntry={secureEntry}
+            returnKeyType={props.returnKeyType}
+            placeholder={hint_visibility ? '' : props.Hint}
+            placeholderTextColor="grey"
+            keyboardType={props.keyboardType}
+            defaultValue={props.defaultValue}
+            style={{width: '95%'}}
+            onFocus={() => set_hint_visibility(true)}
+            onBlur={() => set_hint_visibility(false)}
+            onChangeText={props.onChangeText}
+            onSubmitEditing={props.onSubmitEditing}
+            ref={props.ref}
+          />
+          {props.iseyeshow ? (
+            <Octicons
+            onPress={()=>secureEntry?setsecureEntry(false):setsecureEntry(true)}
+              name={secureEntry ? 'eye' : 'eye-closed'}
+              size={30}
+              color="black"
+              style={{alignSelf: 'center'}}></Octicons>
+          ) : null}
+        </View>
+      </View>
+    </View>
+  );
+};
