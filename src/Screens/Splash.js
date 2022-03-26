@@ -1,8 +1,16 @@
 import React from 'react';
-import {stringAssets, getHeightPer, getWidthPer} from '../Strings/strings';
+import {
+  stringAssets,
+  getHeightPer,
+  getWidthPer,
+  getAsyncData,
+  AsyncStorageStrings,
+} from '../Strings/strings';
 import {coomonStyles} from '../Styles/commonStyles';
 import {CommonButton, CommonImgs} from '../Designs/CommonDesigns';
-import {View, Text,StatusBar} from 'react-native';
+import {View, Text, StatusBar} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const Splash = props => {
   return (
     <View style={coomonStyles.parentView}>
@@ -20,7 +28,7 @@ const Splash = props => {
           position: 'absolute',
           fontWeight: 'bold',
           elevation: 10,
-          top:10,
+          top: 10,
           textAlign: 'center',
           marginTop: getHeightPer(3),
         }}>
@@ -28,9 +36,19 @@ const Splash = props => {
       </Text>
 
       <CommonButton
-        onPress={() => props.navigation.replace(stringAssets.WalkThrough)}
+        onPress={() => {
+          // const Data = getAsyncData(AsyncStorageStrings.IS_LOGIN) 
+          
+          // console.log(Data)
+          // if (getAsyncData(AsyncStorageStrings.IS_LOGIN) == '1') {
+          //   props.navigation.replace(stringAssets.Home);
+          // } else {
+          
+          // }
+            props.navigation.replace(stringAssets.Home);
+        }}
         button_text={stringAssets.Splash_Button}
-        alignSelf = {'center'}
+        alignSelf={'center'}
         width={getWidthPer(90)}
         backgroundColor="#F65E7F"
         position={'absolute'}

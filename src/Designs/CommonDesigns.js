@@ -98,7 +98,6 @@ export const CommonHeadder = ({string, ...props}) => {
       <Text
         style={{
           color: '#F65E7F',
-
           fontWeight: '600',
           fontSize: 18,
           alignSelf: 'center',
@@ -188,7 +187,7 @@ export const WhiteTextInput = ({...props}) => {
           {props.iseyeshow ? (
             <Octicons
             onPress={()=>secureEntry?setsecureEntry(false):setsecureEntry(true)}
-              name={secureEntry ? 'eye' : 'eye-closed'}
+              name={secureEntry ? 'eye-closed' : 'eye'}
               size={30}
               color="black"
               style={{alignSelf: 'center'}}></Octicons>

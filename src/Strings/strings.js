@@ -1,24 +1,36 @@
 import {Dimensions} from 'react-native';
 const windowWidth = Dimensions.get('window').width * 0.01;
 const windowHeight = Dimensions.get('window').height * 0.01;
+import AsyncStorage from '@react-native-async-storage/async-storage';
 export const stringAssets = {
   Splash: 'Splash',
-  Home: 'Home',
+  Tab_Home: 'Home',
+  Tab_Profile: 'Profile',
+  Tab_Message: 'Messsage',
+  Tab_Favlist: 'Favlist',
+  Tab_MatchedDates: 'MathcedDates',
+
   Login: 'Login',
   Login_2: 'Loign2',
   Forgot_Pass: 'ForgotPass',
   WalkThrough: 'WalkThrough',
+  Home:'BottomTabs',
   Splash_text: 'Let’s you find & \ninteract with people',
   Splash_Button: 'Get Started',
   WalkThrough_Text: 'Dating Application \n Concept',
+  WalkThrough_Text_2: 'Dating Application \n Concept2',
+  WalkThrough_Text_3: 'Dating Application \n Concept3',
+  WalkThrough_Text_4: 'Dating Application \n Concept4',
+  WalkThrough_Text_5: 'Dating Application \n Concept5',
   WalkThrough_Button: 'Create account',
   login_Button: 'Create account',
   Have_an_acc: 'Have an account? ',
   Log_in: 'Log in',
-  change_pass:'Change number',
+  change_pass: 'Change number',
   Welcome_back: 'Welcome back.',
   Log_in_acc: 'Log in to your account',
   Number: 'Number',
+  Cancel:'Cancel',
   ReicieverSMS:
     'You will receive an SMS verification that may apply message and data rates.',
   Use_email_insted: 'Use email, instead',
@@ -28,10 +40,10 @@ export const stringAssets = {
   Terms_conditaion: ' Terms of Srevice ',
   Prpivacy_policy: ' Privacy Policy ',
   continue: 'Continue',
-  resend_code:'Resend Code',
-  forgot_headder_1 :'Enter authentication code',
-  forgot_headder_2 :'Enter the 4-digit that we have sent via the phone number +91 95866-37356',
-
+  resend_code: 'Resend Code',
+  forgot_headder_1: 'Enter authentication code',
+  forgot_headder_2:
+    'Enter the 4-digit that we have sent via the phone number +91 95866-37356',
 };
 
 export const ErrorMessages = {
@@ -51,12 +63,50 @@ export const StringRegex = {
   pass_regex: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
 };
 
+export const AsyncStorageStrings = {
+  IS_LOGIN: 'IS_LOGIN',
+};
+
 export function getHeightPer(per) {
   return windowHeight * per;
 }
 export function getWidthPer(per) {
   return windowWidth * per;
 }
+
+export function getAsyncData(key){
+    AsyncStorage.getItem(key).then((item)=>{
+      console.log("ahkaa  kdak   "+item)
+      return item;
+      
+    })
+}
+export function SetAsyncData(key){
+  AsyncStorage.setItem(key)
+}
+
+export const WalkThroughList = [
+  {
+    img: require('../ImgAssets/heart_lock.png'),
+    text: stringAssets.WalkThrough_Text,
+  },
+  {
+    img: require('../ImgAssets/heart_lock.png'),
+    text: stringAssets.WalkThrough_Text_2,
+  },
+  {
+    img: require('../ImgAssets/heart_lock.png'),
+    text: stringAssets.WalkThrough_Text_3,
+  },
+  {
+    img: require('../ImgAssets/heart_lock.png'),
+    text: stringAssets.WalkThrough_Text_4,
+  },
+  {
+    img: require('../ImgAssets/heart_lock.png'),
+    text: stringAssets.WalkThrough_Text_5,
+  },
+];
 
 export const countryListAllIsoData = [
   {code: 'AF', code3: 'AFG', name: 'Afghanistan', number: '004'},
@@ -423,4 +473,76 @@ export const countryListAllIsoData = [
   {code: 'ZM', code3: 'ZMB', name: 'Zambia', number: '894'},
   {code: 'ZW', code3: 'ZWE', name: 'Zimbabwe', number: '716'},
   {code: 'AX', code3: 'ALA', name: 'Åland Islands', number: '248'},
+];
+export const homeData = [
+  {
+    path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    name: 'Chocolaty Queen',
+    profession:'Physician'
+  },
+  {
+    path: 'https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    name: 'Tigger fresh',
+    profession:'Engineer'
+  },
+  {
+    path: 'https://1.bp.blogspot.com/-Muc21xaQjYg/XluhYO6f6vI/AAAAAAAAPJw/T51WnNCctz4Vxn_9REzJuftkznfuRGKUgCLcBGAsYHQ/s1600/whatsapp%2Bprofile%2Bpic%2B%25281%2529.jpg',
+    name: 'Twilight Queenbee',
+    profession:'Dentist'
+  },
+  {
+    path: 'https://images.unsplash.com/photo-1618641986557-1ecd230959aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+    name: 'Bikewithgirl',
+    profession:'Consultant'
+  },
+  {
+    path: 'https://i.pinimg.com/550x/7d/1a/3f/7d1a3f77eee9f34782c6f88e97a6c888.jpg',
+    name: 'Chocolaty Queen',
+    profession:'Corporate lawyer'
+  },
+  {
+    path: 'https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+    name: 'Lovecapri',
+    profession:'Actuary'
+  },
+  {
+    path: 'https://wallpaperaccess.com/full/2213426.jpg',
+    name: 'Hot Babe',
+    profession:'Teacher'
+  },
+  {
+    path: 'http://www.goodmorningimagesdownload.com/wp-content/uploads/2020/05/Profile-Picture-7.jpg',
+    name: '	Peace Hug',
+    profession:'Occupational Therapist'
+  },
+  {
+    path: 'https://wallpaperaccess.com/full/2213424.jpg',
+    name: 'Lil Cutie',
+    profession:'Biomedical Enginee'
+  },
+  {
+    path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    name: 'Kara',
+    profession:'Civil engineer'
+  },
+  {
+    path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    name: 'Kara',
+    profession:'Civil engineer'
+  },
+  {
+    path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    name: 'Kara',
+    profession:'Civil engineer'
+  },
+  {
+    path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    name: 'Kara',
+    profession:'Civil engineer'
+  },
+  {
+    path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    name: 'Kara',
+    profession:'Civil engineer'
+  },
 ];

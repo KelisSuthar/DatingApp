@@ -14,6 +14,7 @@ import WalkThrough from './src/Screens/Walkthrough'
 import Login from './src/Screens/Login'
 import Login2 from './src/Screens/Login2'
 import ForgtePass from './src/Screens/Forgotpass'
+import Home from './src/Screens/HomeScrrens/BottomTabs'
 import {stringAssets,getHeightPer,getWidthPer} from './src/Strings/strings'
 
 
@@ -49,6 +50,7 @@ const App = () => {
     <Stack.Screen name={stringAssets.Login} component={Login}options = {{headerShown:false}} />
     <Stack.Screen name={stringAssets.Login_2} component={Login2} options = {{headerShown:false}}/>
     <Stack.Screen name={stringAssets.Forgot_Pass} component={ForgtePass} options = {{headerShown:false}}/>
+    <Stack.Screen name={stringAssets.Home} component={Home} options = {{headerShown:false}}/>
   
   </Stack.Navigator>
 </NavigationContainer>

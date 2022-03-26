@@ -5,9 +5,10 @@ import {
   getHeightPer,
   getWidthPer,
   ErrorMessages,
+  AsyncStorageStrings,
 } from '../Strings/strings';
 import {coomonStyles} from '../Styles/commonStyles';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   CommonImgs,
@@ -19,6 +20,7 @@ import {
   CommonModalDialog,
 } from '../Designs/CommonDesigns';
 import {View, SafeAreaView, TextInput, StatusBar, Text} from 'react-native';
+import { parseComponentStack } from 'react-native/Libraries/LogBox/Data/parseLogBoxLog';
 const Login2 = props => {
   const [isDialogShow, setDialog] = React.useState(false);
   const [dialogMsg, setDialogMsg] = React.useState('');
@@ -41,8 +43,9 @@ const Login2 = props => {
     } else {
       setDialogMsg('Succress');
       setDialog(true);
+      props.navigation.replace(stringAssets.Home)
+      AsyncStorage.setItem(AsyncStorageStrings.IS_LOGIN, '1');
     }
-
   }
   return (
     <View
@@ -82,7 +85,6 @@ const Login2 = props => {
           onPress={() => {
             props.navigation.goBack();
           }}
-          
         />
         <WhiteTextInput
           returnKeyType="next"
@@ -100,7 +102,7 @@ const Login2 = props => {
           onChangeText={text => {
             setPass(text);
           }}
-          iseyeshow= {true}
+          iseyeshow={true}
           defaultValue={pass}
           // ref={input => {
           //   pass = input;
@@ -117,9 +119,6 @@ const Login2 = props => {
             props.navigation.navigate(stringAssets.Forgot_Pass);
           }}
         />
-
-
-     
       </View>
       <CommonButton
         button_text={stringAssets.Log_in}
@@ -130,35 +129,41 @@ const Login2 = props => {
         fontWeight={'500'}
         onPress={() => checkData()}
       />
-         <Text
+      <Text
+        style={{
+          color: 'black',
+          fontSize: 16,
+          position: 'absolute',
+          fontWeight: '600',
+          fontFamily: 'Poppins',
+          bottom: 150,
+        }}>
+        By continuing, you agree to our
+        <Text
+          onPress={() => {
+            setDialog(true), setDialogMsg('Comming Soon');
+          }}
           style={{
-            color: 'black',
-            fontSize: 16,
-            position: 'absolute',
-            fontWeight: '600',
-            fontFamily: 'Poppins',
-            bottom: 150,
+            color: '#F65E7F',
           }}>
-          By continuing, you agree to our 
+          {stringAssets.Terms_conditaion}
           <Text
             style={{
-              color: '#F65E7F',
+              color: 'black',
             }}>
-            {stringAssets.Terms_conditaion}
+            And
             <Text
+              onPress={() => {
+                setDialog(true), setDialogMsg('Comming Soon');
+              }}
               style={{
-                color: 'black',
+                color: '#F65E7F',
               }}>
-               And 
-              <Text
-                style={{
-                  color: '#F65E7F',
-                }}>
-                {stringAssets.Prpivacy_policy}
-              </Text>
+              {stringAssets.Prpivacy_policy}
             </Text>
           </Text>
         </Text>
+      </Text>
     </View>
   );
 };

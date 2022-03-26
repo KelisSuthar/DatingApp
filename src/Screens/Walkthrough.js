@@ -1,10 +1,33 @@
-import React from 'react';
-import {stringAssets, getHeightPer, getWidthPer} from '../Strings/strings';
+import React, {useState, useRef} from 'react';
+import {
+  stringAssets,
+  WalkThroughList,
+  getHeightPer,
+  getWidthPer,
+} from '../Strings/strings';
 import {coomonStyles} from '../Styles/commonStyles';
 import {CommonImgs, CommonButton, CommonTexts} from '../Designs/CommonDesigns';
-import {View, Text, StatusBar} from 'react-native';
+import {View, Text, StatusBar, Image} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import Carousel, {Pagination} from 'react-native-snap-carousel';
+
+const walkthrough_row = ({item}) => {
+  return (
+    <View style={{flexDirection: 'column '}}>
+      <Image
+        source={item.img}
+        style={{width: getWidthPer(80), height: getHeightPer(50)}}></Image>
+      <Text>
+        {item.text}
+      </Text>
+    </View>
+  );
+};
+
 const WalkThrough = props => {
+  const [index, setIndex] = useState(0);
+  const isCarousel = useRef(null);
+
   return (
     <View style={[coomonStyles.parentView, {justifyContent: 'center'}]}>
       <LinearGradient
@@ -22,6 +45,33 @@ const WalkThrough = props => {
         backgroundColor={'transparent'}
         barStyle="dark-content"
       />
+      {/* <Carousel
+        style={{height:getHeightPer(20),backgroundColor:'black',position:'relative'}}
+        layout='default'
+        
+        data={WalkThroughList}
+        renderItem={(item)=>{walkthrough_row(item)}}
+        sliderWidth={getWidthPer(50)}
+        itemWidth={getWidthPer(50)}/>
+      <Pagination
+        dotsLength={WalkThroughList.length}
+        activeDotIndex={index}
+        carouselRef={isCarousel}
+        dotStyle={{
+          width: 10,
+          height: 10,
+          borderRadius: 5,
+          marginHorizontal: 8,
+          backgroundColor: '#F65E7F',
+        }}
+        tappableDots={false}
+        inactiveDotStyle={{
+          backgroundColor: 'black',
+          // Define styles for inactive dots here
+        }}
+        inactiveDotOpacity={0.4}
+        inactiveDotScale={0.6}
+      /> */}
       <CommonImgs
         path={require('../ImgAssets/heart_lock.png')}
         height={getHeightPer(30)}
