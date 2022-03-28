@@ -118,7 +118,17 @@ def jscFlavor = 'org.webkit:android-jsc:+'
  * on project.ext.react, JavaScript will not be compiled to Hermes Bytecode
  * and the benefits of using Hermes will therefore be sharply reduced.
  */
-def enableHermes = project.ext.react.get("enableHermes", false);
+def enableHermes = project.ext.react.get("enableHermes", false);project.ext.react
+
+
+
+project.ext.react = [
+        entryFile: "index.js",
+        bundleAssetName: "app.bundle",
+]
+
+
+
 
 /**
  * Architectures to build native code for in debug.
@@ -186,6 +196,16 @@ android {
 
         }
     }
+    packagingOptions {
+        pickFirst 'lib/x86/libc++_shared.so'
+        pickFirst 'lib/x86/libjsc.so'
+        pickFirst 'lib/x86_64/libjsc.so'
+        pickFirst 'lib/arm64-v8a/libjsc.so'
+        pickFirst 'lib/arm64-v8a/libc++_shared.so'
+        pickFirst 'lib/x86_64/libc++_shared.so'
+        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+        pickFirst 'lib/armeabi-v7a/libjsc.so'
+    }
 }
 
 dependencies {
@@ -196,6 +216,20 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     implementation project(':react-native-linear-gradient')
+    implementation(project(':react-native-jitsi-meet')) {
+        exclude group: 'com.facebook.react',module:'react-native-locale-detector'
+        exclude group: 'com.facebook.react',module:'react-native-vector-icons'
+        // Un-comment below if using hermes
+        //exclude group: 'com.facebook',module:'hermes'
+        // Un-comment any packages below that you have added to your project to prevent `duplicate_classes` errors
+//        exclude group: 'com.facebook.react',module:'react-native-community-async-storage'
+        exclude group: 'com.facebook.react',module:'react-native-community_netinfo'
+        exclude group: 'com.facebook.react',module:'react-native-svg'
+        exclude group: 'com.facebook.react',module:'react-native-fetch-blob'
+        exclude group: 'com.facebook.react',module:'react-native-webview'
+        exclude group: 'com.facebook.react',module:'react-native-linear-gradient'
+        exclude group: 'com.facebook.react',module:'react-native-sound'
+    }
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'

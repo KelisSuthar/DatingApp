@@ -9,12 +9,13 @@ export const stringAssets = {
   Tab_Message: 'Messsage',
   Tab_Favlist: 'Favlist',
   Tab_MatchedDates: 'MathcedDates',
-
+  user_name: 'User Name',
+  ex_email: 'ExampleEmail@Gmail.com',
   Login: 'Login',
   Login_2: 'Loign2',
   Forgot_Pass: 'ForgotPass',
   WalkThrough: 'WalkThrough',
-  Home:'BottomTabs',
+  Home: 'BottomTabs',
   Splash_text: 'Let’s you find & \ninteract with people',
   Splash_Button: 'Get Started',
   WalkThrough_Text: 'Dating Application \n Concept',
@@ -30,7 +31,7 @@ export const stringAssets = {
   Welcome_back: 'Welcome back.',
   Log_in_acc: 'Log in to your account',
   Number: 'Number',
-  Cancel:'Cancel',
+  Cancel: 'Cancel',
   ReicieverSMS:
     'You will receive an SMS verification that may apply message and data rates.',
   Use_email_insted: 'Use email, instead',
@@ -44,6 +45,17 @@ export const stringAssets = {
   forgot_headder_1: 'Enter authentication code',
   forgot_headder_2:
     'Enter the 4-digit that we have sent via the phone number +91 95866-37356',
+  view_profile: 'View Profile',
+  address: 'Address',
+  payment_methods: 'Payment Method',
+  help: 'Help',
+  settings: 'Settings',
+  about: 'About',
+  log_out: 'Log out',
+  want_to_logout: 'Are you sure want to logout?',
+  yes: 'Yes',
+  no: 'No',
+  log_out_success: 'Logout Successfull!!!',
 };
 
 export const ErrorMessages = {
@@ -74,15 +86,14 @@ export function getWidthPer(per) {
   return windowWidth * per;
 }
 
-export function getAsyncData(key){
-    AsyncStorage.getItem(key).then((item)=>{
-      console.log("ahkaa  kdak   "+item)
-      return item;
-      
-    })
+export function getAsyncData(key) {
+  AsyncStorage.getItem(key).then(item => {
+    console.log('ahkaa  kdak   ' + item);
+    return item;
+  });
 }
-export function SetAsyncData(key){
-  AsyncStorage.setItem(key)
+export function SetAsyncData(key) {
+  AsyncStorage.setItem(key);
 }
 
 export const WalkThroughList = [
@@ -478,71 +489,207 @@ export const homeData = [
   {
     path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     name: 'Chocolaty Queen',
-    profession:'Physician'
+    profession: 'Physician',
   },
   {
     path: 'https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     name: 'Tigger fresh',
-    profession:'Engineer'
+    profession: 'Engineer',
   },
   {
     path: 'https://1.bp.blogspot.com/-Muc21xaQjYg/XluhYO6f6vI/AAAAAAAAPJw/T51WnNCctz4Vxn_9REzJuftkznfuRGKUgCLcBGAsYHQ/s1600/whatsapp%2Bprofile%2Bpic%2B%25281%2529.jpg',
     name: 'Twilight Queenbee',
-    profession:'Dentist'
+    profession: 'Dentist',
   },
   {
     path: 'https://images.unsplash.com/photo-1618641986557-1ecd230959aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80',
     name: 'Bikewithgirl',
-    profession:'Consultant'
+    profession: 'Consultant',
   },
   {
     path: 'https://i.pinimg.com/550x/7d/1a/3f/7d1a3f77eee9f34782c6f88e97a6c888.jpg',
     name: 'Chocolaty Queen',
-    profession:'Corporate lawyer'
+    profession: 'Corporate lawyer',
   },
   {
     path: 'https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80',
     name: 'Lovecapri',
-    profession:'Actuary'
+    profession: 'Actuary',
   },
   {
     path: 'https://wallpaperaccess.com/full/2213426.jpg',
     name: 'Hot Babe',
-    profession:'Teacher'
+    profession: 'Teacher',
   },
   {
     path: 'http://www.goodmorningimagesdownload.com/wp-content/uploads/2020/05/Profile-Picture-7.jpg',
     name: '	Peace Hug',
-    profession:'Occupational Therapist'
+    profession: 'Occupational Therapist',
   },
   {
     path: 'https://wallpaperaccess.com/full/2213424.jpg',
     name: 'Lil Cutie',
-    profession:'Biomedical Enginee'
+    profession: 'Biomedical Enginee',
   },
   {
     path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     name: 'Kara',
-    profession:'Civil engineer'
+    profession: 'Civil engineer',
   },
   {
     path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     name: 'Kara',
-    profession:'Civil engineer'
+    profession: 'Civil engineer',
   },
   {
     path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     name: 'Kara',
-    profession:'Civil engineer'
+    profession: 'Civil engineer',
   },
   {
     path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     name: 'Kara',
-    profession:'Civil engineer'
+    profession: 'Civil engineer',
   },
   {
     path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     name: 'Kara',
-    profession:'Civil engineer'
+    profession: 'Civil engineer',
   },
 ];
+
+export const chatListData = [
+  {
+    path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    name: 'Chocolaty Queen',
+    message: 'Physician',
+    age: '50 years',
+    address: 'Indaia',
+    distance: '70 Km',
+    like: false,
+    
+  },
+  {
+    path: 'https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    name: 'Tigger fresh',
+    message: 'Engineer',
+    age: '60 years',
+    address: 'Indaia',
+    distance: '60 Km',
+    like: false,
+  },
+  {
+    path: 'https://1.bp.blogspot.com/-Muc21xaQjYg/XluhYO6f6vI/AAAAAAAAPJw/T51WnNCctz4Vxn_9REzJuftkznfuRGKUgCLcBGAsYHQ/s1600/whatsapp%2Bprofile%2Bpic%2B%25281%2529.jpg',
+    name: 'Twilight Queenbee',
+    message: 'Dentist',
+    age: '70 years',
+    address: 'Indaia',
+    distance: '50 km',
+    like: false,
+  },
+  {
+    path: 'https://images.unsplash.com/photo-1618641986557-1ecd230959aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+    name: 'Bikewithgirl',
+    message: 'Consultant',
+    age: '80 years',
+    address: 'Indaia',
+    distance: '40 km',
+    like: false,
+  },
+  {
+    path: 'https://i.pinimg.com/550x/7d/1a/3f/7d1a3f77eee9f34782c6f88e97a6c888.jpg',
+    name: 'Chocolaty Queen',
+    message: 'Corporate lawyer',
+    age: '10 years',
+    address: 'Indaia',
+    distance: '30 km',
+    like: false,
+  },
+  {
+    path: 'https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+    name: 'Lovecapri',
+    message: 'Actuary',
+    age: '50 years',
+    address: 'Indaia',
+    distance: '20 km',
+    like: false,
+  },
+  {
+    path: 'https://wallpaperaccess.com/full/2213426.jpg',
+    name: 'Hot Babe',
+    message: 'Teacher',
+    age: '30 years',
+    address: 'Indaia',
+    distance: '10 km',
+    like: false,
+  },
+  {
+    path: 'http://www.goodmorningimagesdownload.com/wp-content/uploads/2020/05/Profile-Picture-7.jpg',
+    name: '	Peace Hug',
+    message: 'Occupational Therapist',
+    age: '20 years',
+    address: 'Indaia',
+    distance: '5 km',
+    like: false,
+  },
+  {
+    path: 'https://wallpaperaccess.com/full/2213424.jpg',
+    name: 'Lil Cutie',
+    message: 'Biomedical Enginee',
+    age: '30 years',
+    address: 'Indaia',
+    distance: '2 km',
+    like: false,
+  },
+  {
+    path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    name: 'Kara',
+    message: 'Civil engineer1',
+    age: '70 years',
+    address: 'Indaia',
+    distance: '70 km',
+    like: false,
+  },
+  {
+    path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    name: 'Kara',
+    message: 'Civil engineer2',
+    age: '60 years',
+    address: 'Indaia',
+    distance: '32 km',
+    like: false,
+  },
+  {
+    path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    name: 'Kara',
+    message: 'Civil engineer3',
+    age: '50 years',
+    address: 'Indaia',
+    distance: '732 km',
+    like: false,
+  },
+  {
+    path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    name: 'Kara',
+    message: 'Civil engineer4',
+    age: '30 years',
+    address: 'Indaia',
+    distance: '70 km',
+    like: false,
+  },
+  {
+    path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    name: 'Kara',
+    message: 'Civil engineer5',
+    age: '10 years',
+    address: 'Indaia',
+    distance: '740 Km',
+    like: false,
+  },
+];
+
+export class UserModel {
+  constructor() {
+    path, name, name, message;
+  }
+}

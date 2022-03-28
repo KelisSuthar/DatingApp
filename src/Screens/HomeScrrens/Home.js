@@ -8,6 +8,7 @@ import {
   getHeightPer,
   getWidthPer,
   homeData,
+  UserModel,
 } from '../../Strings/strings';
 import {coomonStyles} from '../../Styles/commonStyles';
 import {
@@ -15,13 +16,13 @@ import {
   CommonButton,
   CommonWhiteBack,
   CommonTexts,
-  CommonHeadder,
+  
   WhiteTextInput,
   CommonModalDialog,
 } from '../../Designs/CommonDesigns';
 import {View, Text, StatusBar, Image, TextInput, FlatList} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-const Tab = createBottomTabNavigator();
+
 
 const Coloumn_Item = ({img_path, uname, profession}) => {
   return (
@@ -100,8 +101,6 @@ const Home = props => {
               style={{width: '80%'}}
               onChangeText={item => {
                 setSearchText(item);
-                
-                array =  homeData.filter((array)=>array.name.includes(item))
               }}></TextInput>
             
               {seacrhText.length>0?<Ionicons
@@ -116,7 +115,8 @@ const Home = props => {
           </Text>
         </View>
         <FlatList
-          data={seacrhText.length>0?array:homeData}
+          // data={seacrhText.length>0?array:homeData}
+          data = {array.filter((array)=>array.name.includes(seacrhText))}
           renderItem={({item}) => (
             <Coloumn_Item
               uname={item.name}

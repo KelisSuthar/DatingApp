@@ -80,6 +80,7 @@ const Login2 = props => {
           top: StatusBar.currentHeight,
         }}>
         <CommonHeadder
+        isLeftIconShow = {true}
           width={'100%'}
           string={stringAssets.Log_in}
           onPress={() => {
