@@ -12,7 +12,7 @@ import {getHeightPer, getWidthPer} from '../Strings/strings';
 import {coomonStyles} from '../Styles/commonStyles';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
-import ICONS from 'react-native-vector-icons/';
+import Ionicons from 'react-native-vector-icons/Ionicons'; 
 import LinearGradient from 'react-native-linear-gradient';
 
 export const CommonButton = ({button_text, ...props}) => {
@@ -24,6 +24,7 @@ export const CommonButton = ({button_text, ...props}) => {
         alignSelf: props.alignSelf,
         backgroundColor: props.backgroundColor,
         marginTop: props.marginTop,
+        marginBottom: props.marginBottom,
         marginVertical: props.marginVertical,
         height: getHeightPer(7),
         width: props.width,
@@ -33,9 +34,11 @@ export const CommonButton = ({button_text, ...props}) => {
       }}>
       <Text
         style={{
+          marginVertical :props.textMarginVertical,
           alignItems: 'center',
           alignSelf: 'center',
           color: 'white',
+          textAlign: "center",
           fontSize: 17,
           fontWeight: '600',
           fontFamily: 'Poppins',
@@ -72,8 +75,14 @@ export const CommonTexts = ({string, ...props}) => {
         textAlign: props.textAlign,
         marginTop: props.marginTop,
         marginLeft: props.marginLeft,
-        fontFamily: 'Poppins',
+        fontFamily: 'poppins',
         bottom: props.bottom,
+        left: props.left,
+        right: props.right,
+        marginVertical:props.marginVertical,
+        alignSelf:props.alignSelf,
+        
+        
       }}>
       {string}
     </Text>
@@ -101,21 +110,40 @@ export const CommonHeadder = ({string, ...props}) => {
           onPress={props.onPress}
         />
       ) : null}
+      {props.isColorBlack ? (
+        <Text
+          style={{
+            color: 'black',
+            fontWeight: '600',
+            fontSize: 18,
+            alignSelf: 'center',
+            textAlign: 'center',
+            width: '90%',
+          }}>
+          {string}
+        </Text>
+      ) : (
+        <Text
+          style={{
+            color: '#F65E7F',
+            fontWeight: '600',
+            fontSize: 18,
+            alignSelf: 'center',
+            textAlign: 'center',
+            width: '90%',
+          }}>
+          {string}
+        </Text>
+      )}
 
-      <Text
-        style={{
-          color: '#F65E7F',
-          fontWeight: '600',
-          fontSize: 18,
-          alignSelf: 'center',
-          textAlign: 'center',
-          width: '90%',
-        }}>
-        {string}
-      </Text>
       {props.isRightIocnShow ? (
         <TouchableOpacity onPress={props.onRightPress}>
           <Image source={props.right_img_path} onPress />
+        </TouchableOpacity>
+      ) : null}
+        {props.isAddIconShow ? (
+        <TouchableOpacity onPress={props.onRightPress}>
+          <Ionicons name='ios-add-outline' size={30} color= {'#F65E7F'}/>
         </TouchableOpacity>
       ) : null}
     </View>
@@ -266,6 +294,7 @@ export const WhiteTextInput = ({...props}) => {
             onChangeText={props.onChangeText}
             onSubmitEditing={props.onSubmitEditing}
             ref={props.ref}
+            
           />
           {props.iseyeshow ? (
             <Octicons
@@ -288,9 +317,9 @@ export const CirculerImageView = ({...props}) => {
       source={props.source}
       style={{
         borderRadius: getHeightPer(props.size) / 2,
-
         height: getWidthPer(props.size),
         width: getWidthPer(props.size),
+        backgroundColor:props.backgroundColor,
       }}
     />
   );
