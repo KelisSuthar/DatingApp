@@ -19,7 +19,7 @@ import {
   CommonGredient,
   TwoButtonModalDialog,
 } from '../../Designs/CommonDesigns';
-import {View, Text, StatusBar, Image} from 'react-native';
+import {View, Text, StatusBar, Image, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 const Tab = createBottomTabNavigator();
 
@@ -41,7 +41,7 @@ const Profile = props => {
         backgroundColor={'transparent'}
       />
       <CommonModalDialog
-        message={stringAssets.log_out_success}
+        message={dialogMsg}
         visible={isMessageDialogShow}
         onRequestClose={() => setMessageDialog(false)}
         onPress={() => setMessageDialog(false)}
@@ -54,10 +54,10 @@ const Profile = props => {
         negitveText={stringAssets.no}
         onPressPositive={() => {
           setDialog(false), setMessageDialog(true);
-          props.navigation.replace(stringAssets.Login)
+          props.navigation.replace(stringAssets.Login);
         }}
         onPressNegetive={() => {
-          setDialog(false)
+          setDialog(false);
         }}
       />
       <View
@@ -101,9 +101,16 @@ const Profile = props => {
           alignSelf={'center'}
           fontWeight={'500'}
           marginVertical={'7%'}
-          // onPress = {()=>{props.navigationnavigate(stringAssets.profile)}}
+          onPress={() => {
+            props.navigation.navigate(stringAssets.ProfileInfo);
+          }}
         />
-        <View style={{flexDirection: 'row', marginTop: 25}}>
+        <TouchableOpacity
+        onPress={() => {
+          setMessageDialog(true)
+          setDialogMsg("Comming Soon!!!")
+        }}
+         style={{flexDirection: 'row', marginTop: 25}}>
           <EvilIcons
             name="location"
             style={{alignSelf: 'center'}}
@@ -117,8 +124,12 @@ const Profile = props => {
             fontSize={20}
             fontWeight={'400'}
           />
-        </View>
-        <View style={{flexDirection: 'row', marginTop: 25}}>
+        </TouchableOpacity>
+        <TouchableOpacity
+        onPress={() => {
+          props.navigation.navigate(stringAssets.CardList);
+        }}
+         style={{flexDirection: 'row', marginTop: 25}}>
           <AntDesign
             name="creditcard"
             style={{alignSelf: 'center'}}
@@ -132,8 +143,13 @@ const Profile = props => {
             fontSize={20}
             fontWeight={'400'}
           />
-        </View>
-        <View style={{flexDirection: 'row', marginTop: 25}}>
+        </TouchableOpacity>
+        <TouchableOpacity
+         onPress={() => {
+          setMessageDialog(true)
+          setDialogMsg("Comming Soon!!!")
+        }}
+         style={{flexDirection: 'row', marginTop: 25}}>
           <Feather
             name="help-circle"
             style={{alignSelf: 'center'}}
@@ -147,8 +163,12 @@ const Profile = props => {
             fontSize={20}
             fontWeight={'400'}
           />
-        </View>
-        <View style={{flexDirection: 'row', marginTop: 25}}>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{flexDirection: 'row', marginTop: 25}}
+          onPress={() => {
+            props.navigation.navigate(stringAssets.Settings);
+          }}>
           <SimpleLineIcons
             name="settings"
             style={{alignSelf: 'center'}}
@@ -162,7 +182,7 @@ const Profile = props => {
             fontSize={20}
             fontWeight={'400'}
           />
-        </View>
+        </TouchableOpacity>
         <CommonGredient
           height={1}
           marginVertical={40}

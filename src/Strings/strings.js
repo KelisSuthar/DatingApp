@@ -9,6 +9,12 @@ export const stringAssets = {
   Tab_Message: 'Messsage',
   Tab_Favlist: 'Favlist',
   Tab_MatchedDates: 'MathcedDates',
+  ProfileInfo: 'Profile_Info',
+  AddCard: 'Add_Card',
+  CardList: 'Card_List',
+  Settings: 'Settings',
+  Membership: 'Membership',
+
   user_name: 'User Name',
   ex_email: 'ExampleEmail@Gmail.com',
   Login: 'Login',
@@ -56,6 +62,37 @@ export const stringAssets = {
   yes: 'Yes',
   no: 'No',
   log_out_success: 'Logout Successfull!!!',
+  premium_membership_upgrade: 'Premium Membership Upgrade for more features',
+  Account: 'Account',
+  More: 'More',
+  Profile: 'Profile',
+  Notification: 'Notification',
+  Rate_Review: 'Rate & Review',
+  my_details: 'My details',
+  change: 'Change',
+  f_name: 'First Name',
+  l_name: 'Last Name',
+  loc: 'Location',
+  acc_info: 'Account Information',
+  int_pref: 'International Preferences',
+  lang: 'Language',
+  skip: 'Skip',
+  Membership_headding_1:
+    'Get unlimited access to our programs offer tons of variety to workout any day.',
+  Membership_headding_2:
+    'Take the first step towards a healthier and happier life.',
+  Membership_fotter:
+    'You will be charged $9.99 (monthly plan) or $60.99 (annual plan) through your iTunes account. You can cancel at any time if your not satisfied.',
+  select_payment_method: 'Select Payment Method',
+  card_num: 'Card Number',
+  exp_date: 'Expiry Date',
+  cvv: 'CVV',
+  name: 'Name',
+  save_card_details: 'Save card Details',
+  add_card: 'Add a card ',
+  confirm: 'Confirm',
+  subscribe: 'Subscribe',
+  add_card_text: "We will save this card for your convenience. If required, you can remove the card in the 'Payments' section in the 'Profile' menu. We do not store CVV.",
 };
 
 export const ErrorMessages = {
@@ -68,6 +105,13 @@ export const ErrorMessages = {
   pass_valid: 'Please Enter Valid Password',
   otp_valid: 'Please Enter Valid OTP \n OTP Has 4 Digits',
   otp_empty: 'Please Enter OTP',
+  card_num_empty: 'Please Enter Card Number',
+  card_num_valid: 'Please Enter Valid Card Number',
+  date_empty: 'Please Select Date',
+  cvv_empty: 'Please Enter CVV',
+  cvv_valid: 'Please Enter Valid CVV',
+  name_Empty: 'Please Enter Name',
+  name_valid: 'Please Enter Valid Name',
 };
 export const StringRegex = {
   email_regex: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
@@ -86,15 +130,14 @@ export function getWidthPer(per) {
   return windowWidth * per;
 }
 
-export function getAsyncData(key) {
-  AsyncStorage.getItem(key).then(item => {
-    console.log('ahkaa  kdak   ' + item);
-    return item;
-  });
-}
-export function SetAsyncData(key) {
-  AsyncStorage.setItem(key);
-}
+export const getAsyncData = async () => {
+  try {
+    const value = await AsyncStorage.getItem(AsyncStorageStrings.IS_LOGIN);
+    return value;
+  } catch (e) {
+    // error reading value
+  }
+};
 
 export const WalkThroughList = [
   {
@@ -567,7 +610,6 @@ export const chatListData = [
     address: 'Indaia',
     distance: '70 Km',
     like: false,
-    
   },
   {
     path: 'https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -688,8 +730,53 @@ export const chatListData = [
   },
 ];
 
-export class UserModel {
-  constructor() {
-    path, name, name, message;
-  }
-}
+export const exampleChat = [
+  {sender: 'me', reciever: 'other', message: 'Hi'},
+  {sender: 'other', reciever: 'other', message: 'Hello'},
+  {sender: 'other', reciever: 'other', message: 'H R U?'},
+  {sender: 'other', reciever: 'other', message: 'Name'},
+  {sender: 'other', reciever: 'me', message: 'Desg'},
+  {sender: 'other', reciever: 'me', message: 'Salary'},
+  {sender: 'other', reciever: 'me', message: 'What Is Plan'},
+  {sender: 'other', reciever: 'me', message: 'car Details'},
+  {sender: 'other', reciever: 'me', message: 'same Car'},
+  {sender: 'other', reciever: 'me', message: 'Tracking'},
+  {sender: 'me', reciever: 'other', message: 'Himalyas'},
+  {sender: 'me', reciever: 'other', message: 'yes'},
+  {sender: 'me', reciever: 'other', message: 'No'},
+];
+export const MemberShipList = [
+  {
+    plan: 'Populer',
+    includeIn: 'Excercise Class',
+    price: '89.00',
+    time: '1 Year',
+    availability: 'iOS, Android, Apple TV, Roku, Amazon Fire TV, web browser',
+  },
+  {
+    plan: 'Affordable',
+    includeIn: 'Excercise Class',
+    price: '189.00',
+    time: '2 Year',
+    availability: 'iOS, Android, Apple TV, Roku, Amazon Fire TV, web browser',
+  },
+  {
+    plan: 'Cheap',
+    includeIn: 'Excercise Class',
+    price: '299.00',
+    time: '4 Year',
+    availability: 'iOS, Android, Apple TV, Roku, Amazon Fire TV, web browser',
+  },
+  {
+    plan: 'For Elders',
+    includeIn: 'Excercise Class',
+    price: '289.00',
+    time: '2 Year',
+    availability: 'iOS, Android, Apple TV, Roku, Amazon Fire TV, web browser',
+  },
+];
+export const cardList = [
+  {id:1,name:"Kelis Suthar",card_type : "Visa",card_num:'4242 **** **** 4242'},
+  {id:2,name:"Dixit Patel",card_type : "Master",card_num:'2525 **** **** 2525'},
+  {id:3,name:"IQ Lance",card_type : "Wifi",card_num:'2424 **** **** 2424'},
+];

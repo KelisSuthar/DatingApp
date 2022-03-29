@@ -31,4 +31,11 @@ export const coomonStyles = StyleSheet.create({
     width:50,
     color:'black'
   },
+  whiteBack_redborder: {
+    backgroundColor: 'white',
+    borderRadius: 15,
+    borderColor: '#fbcfd9',
+    borderWidth: 1,
+  
+  },
 });

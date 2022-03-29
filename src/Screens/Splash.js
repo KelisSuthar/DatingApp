@@ -12,6 +12,17 @@ import {View, Text, StatusBar} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Splash = props => {
+  const [IS_LOGIN, set_is_login] = React.useState('');
+
+  const getAsyncData = async key => {
+    
+    set_is_login(await AsyncStorage.getItem(key));
+  };
+
+
+  React.useEffect(() => {
+    getAsyncData(AsyncStorageStrings.IS_LOGIN)
+  });
   return (
     <View style={coomonStyles.parentView}>
       <StatusBar backgroundColor={'transparent'} barStyle="dark-content" />
@@ -37,15 +48,15 @@ const Splash = props => {
 
       <CommonButton
         onPress={() => {
-          // const Data = getAsyncData(AsyncStorageStrings.IS_LOGIN) 
           
-          // console.log(Data)
-          // if (getAsyncData(AsyncStorageStrings.IS_LOGIN) == '1') {
-          //   props.navigation.replace(stringAssets.Home);
-          // } else {
-          
-          // }
+          console.log(IS_LOGIN);
+          if (IS_LOGIN == '1') {
             props.navigation.replace(stringAssets.Home);
+          } else {
+            props.navigation.replace(stringAssets.Login_2);
+          }
+
+            // props.navigation.replace(stringAssets.Login_2);
         }}
         button_text={stringAssets.Splash_Button}
         alignSelf={'center'}

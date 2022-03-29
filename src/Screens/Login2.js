@@ -20,12 +20,13 @@ import {
   CommonModalDialog,
 } from '../Designs/CommonDesigns';
 import {View, SafeAreaView, TextInput, StatusBar, Text} from 'react-native';
-import { parseComponentStack } from 'react-native/Libraries/LogBox/Data/parseLogBoxLog';
+import {parseComponentStack} from 'react-native/Libraries/LogBox/Data/parseLogBoxLog';
 const Login2 = props => {
   const [isDialogShow, setDialog] = React.useState(false);
   const [dialogMsg, setDialogMsg] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [pass, setPass] = React.useState('');
+  const pass_ref = React.useRef();
 
   function checkData() {
     if (email.length == 0) {
@@ -43,7 +44,7 @@ const Login2 = props => {
     } else {
       setDialogMsg('Succress');
       setDialog(true);
-      props.navigation.replace(stringAssets.Home)
+      props.navigation.replace(stringAssets.Home);
       AsyncStorage.setItem(AsyncStorageStrings.IS_LOGIN, '1');
     }
   }
@@ -80,7 +81,7 @@ const Login2 = props => {
           top: StatusBar.currentHeight,
         }}>
         <CommonHeadder
-        isLeftIconShow = {true}
+          isLeftIconShow={true}
           width={'100%'}
           string={stringAssets.Log_in}
           onPress={() => {
@@ -94,20 +95,17 @@ const Login2 = props => {
             setEmail(text);
           }}
           defaultValue={email}
-          onSubmitEditing={() => {
-            pass.focus();
-          }}
+          onSubmitEditing={() => {pass_ref.current.focus()}}
         />
         <WhiteTextInput
+          ref={pass_ref}
           Hint={stringAssets.password}
           onChangeText={text => {
             setPass(text);
           }}
           iseyeshow={true}
           defaultValue={pass}
-          // ref={input => {
-          //   pass = input;
-          // }}
+          onSubmitEditing = {()=>{}}
         />
 
         <CommonTexts
