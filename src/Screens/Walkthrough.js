@@ -11,15 +11,23 @@ import {View, Text, StatusBar, Image} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 
-const walkthrough_row = ({item}) => {
+const Coloumn_Item = ({img, text}) => {
   return (
-    <View style={{flexDirection: 'column '}}>
-      <Image
-        source={item.img}
-        style={{width: getWidthPer(80), height: getHeightPer(50)}}></Image>
-      <Text>
-        {item.text}
-      </Text>
+    <View style={{flexDirection: 'column', alignSelf: 'center'}}>
+      <CommonImgs
+        path={img}
+        height={getHeightPer(30)}
+        width={getWidthPer(50)}
+        resizeMode="contain"
+      />
+      <CommonTexts
+        string={text}
+        fontSize={30}
+        textAlign="center"
+        color="black"
+        fontWeight={'700'}
+        marginTop={40}
+      />
     </View>
   );
 };
@@ -45,47 +53,58 @@ const WalkThrough = props => {
         backgroundColor={'transparent'}
         barStyle="dark-content"
       />
-      {/* <Carousel
-        style={{height:getHeightPer(20),backgroundColor:'black',position:'relative'}}
-        layout='default'
-        
-        data={WalkThroughList}
-        renderItem={(item)=>{walkthrough_row(item)}}
-        sliderWidth={getWidthPer(50)}
-        itemWidth={getWidthPer(50)}/>
-      <Pagination
-        dotsLength={WalkThroughList.length}
-        activeDotIndex={index}
-        carouselRef={isCarousel}
-        dotStyle={{
-          width: 10,
-          height: 10,
-          borderRadius: 5,
-          marginHorizontal: 8,
-          backgroundColor: '#F65E7F',
-        }}
-        tappableDots={false}
-        inactiveDotStyle={{
-          backgroundColor: 'black',
-          // Define styles for inactive dots here
-        }}
-        inactiveDotOpacity={0.4}
-        inactiveDotScale={0.6}
-      /> */}
-      <CommonImgs
+      <View
+        style={{
+          justifyContent: 'center',
+          flexDirection: 'column',
+          height: getHeightPer(50),
+        }}>
+        <Carousel
+          ref={isCarousel}
+          containerCustomStyle={{alignSelf: 'center'}}
+          layout="default"
+          data={WalkThroughList}
+          renderItem={({item}) => (
+            <Coloumn_Item text={item.text} img={item.img} />
+          )}
+          onSnapToItem={index => setIndex(index)}
+          sliderWidth={getWidthPer(50)}
+          itemWidth={getWidthPer(50)}
+        />
+        <Pagination
+          // containerStyle={{position: 'absolute'}}
+          dotsLength={WalkThroughList.length}
+          activeDotIndex={index}
+          carouselRef={isCarousel}
+          dotStyle={{
+            width: 10,
+            height: 10,
+            borderRadius: 5,
+            marginHorizontal: 8,
+            backgroundColor: '#F65E7F',
+          }}
+          tappableDots={false}
+          inactiveDotStyle={{
+            backgroundColor: 'black',
+          }}
+          inactiveDotOpacity={0.4}
+          inactiveDotScale={0.6}
+        />
+      </View>
+      {/* <CommonImgs
         path={require('../ImgAssets/heart_lock.png')}
         height={getHeightPer(30)}
         width={getWidthPer(80)}
         resizeMode="contain"
-      />
-      <CommonTexts
+      /> */}
+      {/* <CommonTexts
         string={stringAssets.WalkThrough_Text}
         fontSize={30}
         textAlign="center"
         color="black"
         fontWeight={'700'}
         marginTop={40}
-      />
+      /> */}
       <CommonButton
         button_text={stringAssets.WalkThrough_Button}
         backgroundColor="#F65E7F"

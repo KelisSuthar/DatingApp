@@ -20,34 +20,37 @@ import {
   WhiteTextInput,
   CommonModalDialog,
 } from '../../Designs/CommonDesigns';
-import {View, Text, StatusBar, Image, TextInput, FlatList} from 'react-native';
+import {View, Text, StatusBar, Image, TextInput, FlatList, Touchable, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-
-const Coloumn_Item = ({img_path, uname, message}) => {
-  return (
-    <View style={{flexDirection: 'row', marginVertical: 10}}>
-      <Image
-        source={{uri: img_path}}
-        style={{
-          borderRadius: getHeightPer(10) / 2,
-          alignSelf: 'center',
-          height: getWidthPer(10),
-          width: getWidthPer(10),
-        }}
-      />
-      <View style={{marginLeft: 10, flexDirection: 'column'}}>
-        <Text style={{color: 'black'}}>{uname}</Text>
-        <Text>{message}</Text>
-      </View>
-    </View>
-  );
-};
 
 const Message = props => {
   const [isDialogShow, setDialog] = React.useState(false);
   const [dialogMsg, setDialogMsg] = React.useState('');
   const [isCancelShow, setCancelShow] = React.useState(false);
   const [seacrhText, setSearchText] = React.useState('');
+  const Coloumn_Item = ({img_path, uname, message}) => {
+    return (
+      <View style={{flexDirection: 'row'}} >
+        <TouchableOpacity
+        style = {{width:'100%',flexDirection: 'row', marginVertical: 10}}
+        onPress = {()=>props.navigation.navigate(stringAssets.Chatting,{name:uname,img:img_path})}>
+        <Image
+          source={{uri: img_path}}
+          style={{
+            borderRadius: getHeightPer(10) / 2,
+            alignSelf: 'center',
+            height: getWidthPer(10),
+            width: getWidthPer(10),
+          }}
+        />
+        <View style={{marginLeft: 10, flexDirection: 'column',alignSelf:'center'}}>
+          <Text style={{color: 'black'}}>{uname}</Text>
+          <Text>{message}</Text>
+        </View>
+        </TouchableOpacity>
+      </View>
+    );
+  };
   return (
     <View style={[coomonStyles.parentView, {justifyContent: 'center'}]}>
       <Image
@@ -92,6 +95,7 @@ const Message = props => {
             }}
           />
           <FlatList
+          showsVerticalScrollIndicator = {false}
             style={{height: '90%', marginTop: 16}}
             data={chatListData}
             renderItem={({item}) => (

@@ -26,7 +26,7 @@ const Login2 = props => {
   const [dialogMsg, setDialogMsg] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [pass, setPass] = React.useState('');
-  const pass_ref = React.useRef();
+  const pass_ref = React.useRef(null);
 
   function checkData() {
     if (email.length == 0) {
@@ -95,17 +95,17 @@ const Login2 = props => {
             setEmail(text);
           }}
           defaultValue={email}
-          onSubmitEditing={() => {pass_ref.current.focus()}}
+          onSubmit={() => {pass_ref.current}}
         />
         <WhiteTextInput
-          ref={pass_ref}
+          refrance={pass_ref}
           Hint={stringAssets.password}
           onChangeText={text => {
             setPass(text);
           }}
           iseyeshow={true}
           defaultValue={pass}
-          onSubmitEditing = {()=>{}}
+          // onSubmitEditing = {()=>{}}
         />
 
         <CommonTexts

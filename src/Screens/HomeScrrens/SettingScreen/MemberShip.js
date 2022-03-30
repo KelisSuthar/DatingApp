@@ -4,6 +4,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons'; //Loacation-locatio
 import AntDesign from 'react-native-vector-icons/AntDesign'; //Card -creditcard
 import Feather from 'react-native-vector-icons/Feather'; //helpl -help-circle
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'; //settings -settings
+import Carousel, {Pagination} from 'react-native-snap-carousel';
 import {
   stringAssets,
   WalkThroughList,
@@ -35,11 +36,11 @@ const Row_Layout = ({plan, includeIn, price, time, availability}) => {
     <View
       style={[
         coomonStyles.whiteBack_redborder,
-        {margin: 20, width: getWidthPer(70)},
+        {margin: 20, width: getWidthPer(70),alignSelf:'center'},
       ]}>
       <View
         style={{
-          margin: 10,
+        margin: 10,
           justifyContent: 'center',
           flexDirection: 'column',
         }}>
@@ -83,10 +84,8 @@ const Row_Layout = ({plan, includeIn, price, time, availability}) => {
           backgroundColor="#F65E7F"
           width={'80%'}
           alignSelf={'center'}
-          marginTop = {getHeightPer(2)}
-          onPress={() => {
-            
-          }}
+          marginTop={getHeightPer(2)}
+          onPress={() => {}}
         />
       </View>
     </View>
@@ -178,12 +177,22 @@ const MemberShip = props => {
           marginTop={16}
           textAlign={'center'}
         />
-        <FlatList
+        {/* <FlatList
           horizontal={true}
           data={MemberShipList}
           renderItem={renderItem}
 
           // style={{backgroundColor: 'black'}}
+        /> */}
+         <Carousel
+          containerCustomStyle={{alignSelf: 'center'}}
+          layout="default"
+          data={MemberShipList}
+          renderItem={renderItem}
+          sliderWidth={getWidthPer(90)}
+          itemWidth={getWidthPer(70)}
+        
+          
         />
         <CommonTexts
           color={'black'}

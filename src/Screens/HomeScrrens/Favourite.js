@@ -86,7 +86,10 @@ const Row_Item = ({img_path, uname, age, address, distance, like}) => {
             borderRadius: getHeightPer(15) / 2,
           }}
         />
-        <TouchableOpacity onPress={()=>{like = !like, console.log(like)}}>
+        <TouchableOpacity
+          onPress={() => {
+            (like = !like), console.log(like);
+          }}>
           <Image
             source={
               like
@@ -136,10 +139,11 @@ const Favourite = props => {
       />
 
       <FlatList
+      scrollEnabled = {false}
         onEndReached={reach => {
           // console.log(reach);
         }}
-        keyExtractor={(item, index) => console.log( index.toString())}
+        keyExtractor={(item, index) => console.log(index.toString())}
         ref={refrance}
         data={chatListData}
         onScroll={item => {
@@ -164,34 +168,45 @@ const Favourite = props => {
         style={{
           flexDirection: 'row',
           width: getWidthPer(100),
-          backgroundColor: 'red',
+          
           position: 'absolute',
         }}>
         <TouchableOpacity
+          style={{
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'black',
+            height: getWidthPer(10),
+            width: getWidthPer(10),
+            borderRadius: getHeightPer(5),
+            opacity : 0.5
+          }}
           onPress={() => {
             if (index != 0) {
-              
               setIndex(index - 1);
-              
             }
           }}>
-          <Image
-            style={{left: getWidthPer(5), position: 'absolute'}}
-            source={require('../../ImgAssets/arrow_left.png')}
-          />
+          <Image source={require('../../ImgAssets/arrow_left.png')} />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            
             if (index == chatListData.length - 1) {
-              
-
-              
               return;
             }
             setIndex(index + 1);
           }}
-          style={{right: getWidthPer(5), position: 'absolute'}}>
+          style={{
+            position: 'absolute',
+            right: 0,
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'black',
+            height: getWidthPer(10),
+            width: getWidthPer(10),
+            borderRadius: getHeightPer(5),
+            opacity : 0.5
+            
+          }}>
           <Image source={require('../../ImgAssets/arrow_right.png')} />
         </TouchableOpacity>
       </View>

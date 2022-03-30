@@ -114,7 +114,7 @@ const Profile = props => {
           <EvilIcons
             name="location"
             style={{alignSelf: 'center'}}
-            size={30}
+            size={40}
             color="#F65E7F"
           />
           <CommonTexts

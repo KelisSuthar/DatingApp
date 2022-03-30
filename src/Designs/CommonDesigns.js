@@ -12,7 +12,7 @@ import {getHeightPer, getWidthPer} from '../Strings/strings';
 import {coomonStyles} from '../Styles/commonStyles';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
-import Ionicons from 'react-native-vector-icons/Ionicons'; 
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 
 export const CommonButton = ({button_text, ...props}) => {
@@ -34,11 +34,45 @@ export const CommonButton = ({button_text, ...props}) => {
       }}>
       <Text
         style={{
-          marginVertical :props.textMarginVertical,
+          marginVertical: props.textMarginVertical,
           alignItems: 'center',
           alignSelf: 'center',
           color: 'white',
-          textAlign: "center",
+          textAlign: 'center',
+          fontSize: 17,
+          fontWeight: '600',
+          fontFamily: 'Poppins',
+        }}>
+        {button_text}
+      </Text>
+    </TouchableOpacity>
+  );
+};
+export const CommonButtonBorder = ({button_text, ...props}) => {
+  return (
+    <TouchableOpacity
+      onPress={props.onPress}
+      style={{
+        borderRadius: 30,
+        alignSelf: props.alignSelf,
+        borderColor : props.borderColor,
+        borderWidth :3,
+        marginTop: props.marginTop,
+        marginBottom: props.marginBottom,
+        marginVertical: props.marginVertical,
+        height: getHeightPer(7),
+        width: props.width,
+        position: props.position,
+        justifyContent: 'center',
+        bottom: props.bottom,
+      }}>
+      <Text
+        style={{
+          marginVertical: props.textMarginVertical,
+          alignItems: 'center',
+          alignSelf: 'center',
+          color: '#DD5371',
+          textAlign: 'center',
           fontSize: 17,
           fontWeight: '600',
           fontFamily: 'Poppins',
@@ -79,10 +113,10 @@ export const CommonTexts = ({string, ...props}) => {
         bottom: props.bottom,
         left: props.left,
         right: props.right,
-        marginVertical:props.marginVertical,
-        alignSelf:props.alignSelf,
-        
-        
+        marginVertical: props.marginVertical,
+        alignSelf: props.alignSelf,
+        width : props.width,
+        // backgroundColor:'green',
       }}>
       {string}
     </Text>
@@ -141,9 +175,9 @@ export const CommonHeadder = ({string, ...props}) => {
           <Image source={props.right_img_path} onPress />
         </TouchableOpacity>
       ) : null}
-        {props.isAddIconShow ? (
+      {props.isAddIconShow ? (
         <TouchableOpacity onPress={props.onRightPress}>
-          <Ionicons name='ios-add-outline' size={30} color= {'#F65E7F'}/>
+          <Ionicons name="ios-add-outline" size={30} color={'#F65E7F'} />
         </TouchableOpacity>
       ) : null}
     </View>
@@ -269,10 +303,11 @@ export const TwoButtonModalDialog = ({...props}) => {
   );
 };
 
-export const WhiteTextInput = ({...props}) => {
+export const WhiteTextInput = ({onSubmit,refrance,...props}) => {
   const [hint_visibility, set_hint_visibility] = React.useState(false);
   const [value, setValue] = React.useState('');
   const [secureEntry, setsecureEntry] = React.useState(true);
+  const pass_ref = React.useRef(null);
   return (
     <View style={[coomonStyles.whiteBack, {marginTop: getHeightPer(3)}]}>
       <View style={{flexDirection: 'column', marginHorizontal: 20}}>
@@ -292,9 +327,10 @@ export const WhiteTextInput = ({...props}) => {
             onFocus={() => set_hint_visibility(true)}
             onBlur={() => set_hint_visibility(false)}
             onChangeText={props.onChangeText}
-            onSubmitEditing={props.onSubmitEditing}
-            ref={props.ref}
-            
+            // onSubmitEditing={() => {pass_ref.current.focus()}}
+            onSubmitEditing={onSubmit}
+            ref={refrance}
+            // ref = {pass_ref}
           />
           {props.iseyeshow ? (
             <Octicons
@@ -319,7 +355,8 @@ export const CirculerImageView = ({...props}) => {
         borderRadius: getHeightPer(props.size) / 2,
         height: getWidthPer(props.size),
         width: getWidthPer(props.size),
-        backgroundColor:props.backgroundColor,
+        backgroundColor: props.backgroundColor,
+        alignSelf:props.alignSelf,
       }}
     />
   );
@@ -343,3 +380,4 @@ export const CommonGredient = ({...props}) => {
     />
   );
 };
+

@@ -14,7 +14,7 @@ export const stringAssets = {
   CardList: 'Card_List',
   Settings: 'Settings',
   Membership: 'Membership',
-
+  MatchedPopup: 'MatchedPopup',
   user_name: 'User Name',
   ex_email: 'ExampleEmail@Gmail.com',
   Login: 'Login',
@@ -38,6 +38,7 @@ export const stringAssets = {
   Log_in_acc: 'Log in to your account',
   Number: 'Number',
   Cancel: 'Cancel',
+  Chatting: 'Chatting',
   ReicieverSMS:
     'You will receive an SMS verification that may apply message and data rates.',
   Use_email_insted: 'Use email, instead',
@@ -92,7 +93,15 @@ export const stringAssets = {
   add_card: 'Add a card ',
   confirm: 'Confirm',
   subscribe: 'Subscribe',
-  add_card_text: "We will save this card for your convenience. If required, you can remove the card in the 'Payments' section in the 'Profile' menu. We do not store CVV.",
+  add_card_text:
+    "We will save this card for your convenience. If required, you can remove the card in the 'Payments' section in the 'Profile' menu. We do not store CVV.",
+  matched_date_online: 'Matched Dating Online',
+  send_message: 'Send a Message',
+  view_profile: 'View Profile ',
+  you_got_match: 'You’ve got a match!',
+  message: 'Message',
+  type_message: 'Type your message',
+  JitsiView: 'JitsiView',
 };
 
 export const ErrorMessages = {
@@ -160,6 +169,7 @@ export const WalkThroughList = [
     img: require('../ImgAssets/heart_lock.png'),
     text: stringAssets.WalkThrough_Text_5,
   },
+  
 ];
 
 export const countryListAllIsoData = [
@@ -733,14 +743,14 @@ export const chatListData = [
 export const exampleChat = [
   {sender: 'me', reciever: 'other', message: 'Hi'},
   {sender: 'other', reciever: 'other', message: 'Hello'},
-  {sender: 'other', reciever: 'other', message: 'H R U?'},
+  {sender: 'me', reciever: 'other', message: 'H R U?'},
   {sender: 'other', reciever: 'other', message: 'Name'},
-  {sender: 'other', reciever: 'me', message: 'Desg'},
+  {sender: 'me', reciever: 'me', message: 'Desg'},
   {sender: 'other', reciever: 'me', message: 'Salary'},
   {sender: 'other', reciever: 'me', message: 'What Is Plan'},
-  {sender: 'other', reciever: 'me', message: 'car Details'},
-  {sender: 'other', reciever: 'me', message: 'same Car'},
-  {sender: 'other', reciever: 'me', message: 'Tracking'},
+  {sender: 'me', reciever: 'me', message: 'car Details'},
+  {sender: 'me', reciever: 'me', message: 'same Car'},
+  {sender: 'me', reciever: 'me', message: 'Tracking'},
   {sender: 'me', reciever: 'other', message: 'Himalyas'},
   {sender: 'me', reciever: 'other', message: 'yes'},
   {sender: 'me', reciever: 'other', message: 'No'},
@@ -775,8 +785,88 @@ export const MemberShipList = [
     availability: 'iOS, Android, Apple TV, Roku, Amazon Fire TV, web browser',
   },
 ];
+export const tag_list = [
+  {tag: 'Good Looking'},
+   {tag: 'Handsome'},
+    {tag: 'No Smoking'},
+    {tag: 'Photographer'},
+    {tag: 'Ahmedabad'},
+    {tag: 'Good Looking'},
+    {tag: 'Straight'},
+    {tag: 'Alcoholic'}
+];
+
+
 export const cardList = [
-  {id:1,name:"Kelis Suthar",card_type : "Visa",card_num:'4242 **** **** 4242'},
-  {id:2,name:"Dixit Patel",card_type : "Master",card_num:'2525 **** **** 2525'},
-  {id:3,name:"IQ Lance",card_type : "Wifi",card_num:'2424 **** **** 2424'},
+  {
+    id: 1,
+    name: 'Kelis Suthar',
+    card_type: 'Visa',
+    card_num: '4242 **** **** 4242',
+  },
+  {
+    id: 2,
+    name: 'Dixit Patel',
+    card_type: 'Master',
+    card_num: '2525 **** **** 2525',
+  },
+  {id: 3, name: 'IQ Lance', card_type: 'Wifi', card_num: '2424 **** **** 2424'},
+];
+
+export const matchedDates = [
+  {
+    name: 'Kelis Suthar',
+    age: '24',
+    posted_date: '2 Days',
+    meeting_time: 'New year’s eve',
+    address: 'Prahalad Naggar,Ahmedabad',
+    available_time: '8pm - 12pm ',
+    date_time: 'Sunday December 28, 2021',
+    desc: "Going to watch 'Licorice Pizza' on Thursday night, who's interested in some popcorn an a seat next to me?",
+    img: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+  },
+  {
+    name: 'Iqlance',
+    age: '20',
+    posted_date: '2 Days',
+    meeting_time: 'New year’s eve',
+    address: 'Prahalad Naggar,Ahmedabad',
+    available_time: '8pm - 12pm ',
+    date_time: 'Monday December 28, 2021',
+    desc: "Going to watch 'Licorice Pizza' on Thursday night, who's interested in some popcorn an a seat next to me?",
+    img: 'https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+  },
+  {
+    name: 'Het Patel',
+    age: '43',
+    posted_date: '5 Days',
+    meeting_time: 'New year’s eve',
+    address: 'Prahalad Naggar,Ahmedabad',
+    available_time: '8pm - 12pm ',
+    date_time: 'Tuseday December 28, 2021',
+    desc: "Going to watch 'Licorice Pizza' on Thursday night, who's interested in some popcorn an a seat next to me?",
+    img: 'https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+  },
+  {
+    name: 'Dixit Patel',
+    age: '22',
+    posted_date: '1 Days',
+    meeting_time: 'New year’s eve',
+    address: 'Prahalad Naggar,Ahmedabad',
+    available_time: '8pm - 12pm ',
+    date_time: 'Fraday December 28, 2021',
+    desc: "Going to watch 'Licorice Pizza' on Thursday night, who's interested in some popcorn an a seat next to me?",
+    img: 'https://images.unsplash.com/photo-1618641986557-1ecd230959aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+  },
+  {
+    name: 'Kelis Suthar',
+    age: '24',
+    posted_date: '4 Days',
+    meeting_time: 'New year’s eve',
+    address: 'Prahalad Naggar,Ahmedabad',
+    available_time: '8pm - 12pm ',
+    date_time: 'Saturday December 28, 2021',
+    desc: "Going to watch 'Licorice Pizza' on Thursday night, who's interested in some popcorn an a seat next to me?",
+    img: 'https://i.pinimg.com/550x/7d/1a/3f/7d1a3f77eee9f34782c6f88e97a6c888.jpg',
+  },
 ];

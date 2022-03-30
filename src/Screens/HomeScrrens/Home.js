@@ -36,7 +36,7 @@ const Coloumn_Item = ({img_path, uname, profession}) => {
           width: getWidthPer(10),
         }}
       />
-      <View style={{marginLeft: 10, flexDirection: 'column'}}>
+      <View style={{marginLeft: 10, flexDirection: 'column',alignSelf:'center'}}>
         <Text style={{color: 'black'}}>{uname}</Text>
         <Text>{profession}</Text>
       </View>
@@ -116,6 +116,7 @@ const Home = props => {
         </View>
         <FlatList
           // data={seacrhText.length>0?array:homeData}
+          showsVerticalScrollIndicator = {false}
           data = {array.filter((array)=>array.name.includes(seacrhText))}
           renderItem={({item}) => (
             <Coloumn_Item
