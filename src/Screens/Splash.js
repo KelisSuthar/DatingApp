@@ -49,14 +49,14 @@ const Splash = props => {
       <CommonButton
         onPress={() => {
           
-          // console.log(IS_LOGIN);
-          // if (IS_LOGIN == '1') {
-          //   props.navigation.replace(stringAssets.Home);
-          // } else {
-          //   props.navigation.replace(stringAssets.Login_2);
-          // }
-
+          console.log(IS_LOGIN);
+          if (IS_LOGIN == '1') {
+            props.navigation.replace(stringAssets.Home);
+          } else {
             props.navigation.replace(stringAssets.Login_2);
+          }
+
+            // props.navigation.replace(stringAssets.Login_2);
             // props.navigation.replace(stringAssets.MatchedPopup);
             // props.navigation.replace(stringAssets.Chatting);
             // props.navigation.replace(stringAssets.WalkThrough);

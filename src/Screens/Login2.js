@@ -95,7 +95,7 @@ const Login2 = props => {
             setEmail(text);
           }}
           defaultValue={email}
-          onSubmit={() => {pass_ref.current}}
+          onSubmit={() => {pass_ref.current.focus()}}
         />
         <WhiteTextInput
           refrance={pass_ref}
